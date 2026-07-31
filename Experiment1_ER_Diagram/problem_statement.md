@@ -28,13 +28,12 @@ FlexiFit Gym wants a database to manage its members, trainers, and fitness progr
 
 ### Entities and Attributes
 
-| Entity | Attributes (PK, FK) | Notes |
-|--------|--------------------|-------|
-|        |                    |       |
-|        |                    |       |
-|        |                    |       |
-|        |                    |       |
-|        |                    |       |
+Entity	Attributes (PK, FK)	Notes
+Speaker	speaker_id (PK), name, specialization	Represents speakers for library events.
+Member	member_id (PK), name, email	Represents registered library members.
+Event	event_id (PK), name, date	Represents library events.
+Book	book_id (PK), title, author, category	Represents books available in the library.
+Loan	loan_id (PK), loan_date, return_date	Stores borrowing details of books.
 
 ### Relationships and Constraints
 
