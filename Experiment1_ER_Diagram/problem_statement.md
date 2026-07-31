@@ -28,12 +28,15 @@ FlexiFit Gym wants a database to manage its members, trainers, and fitness progr
 
 ### Entities and Attributes
 
-Entity	Attributes (PK, FK)	Notes
-Speaker	speaker_id (PK), name, specialization	Represents speakers for library events.
-Member	member_id (PK), name, email	Represents registered library members.
-Event	event_id (PK), name, date	Represents library events.
-Book	book_id (PK), title, author, category	Represents books available in the library.
-Loan	loan_id (PK), loan_date, return_date	Stores borrowing details of books.
+| Entity | Attributes (PK, FK) | Notes |
+|--------|--------------------|-------|
+|        |                    |       |
+|        |                    |       |
+|        |                    |       |
+|        |                    |       |
+|        |                    |       |
+
+
 
 ### Relationships and Constraints
 
@@ -44,9 +47,10 @@ Loan	loan_id (PK), loan_date, return_date	Stores borrowing details of books.
 |              |            |               |       |
 
 ### Assumptions
-- 
-- 
-- 
+- Every trainer can teach one or more programs.
+- Members may join multiple fitness programs.
+- Attendance is recorded for every session
+Payments are made only by registered members.
 
 ---
 
@@ -71,7 +75,7 @@ The Central Library wants to manage book lending and cultural events.
 
 | Entity | Attributes (PK, FK) | Notes |
 |--------|--------------------|-------|
-|        |                    |       |
+|  Trainer      |  trainer_id (PK), name, specialization, phone_no                  |     Represents trainers who conduct fitness programs.  |
 |        |                    |       |
 |        |                    |       |
 |        |                    |       |
@@ -86,10 +90,10 @@ The Central Library wants to manage book lending and cultural events.
 |              |            |               |       |
 
 ### Assumptions
-- 
-- 
-- 
-
+- Only registered members can borrow books.
+- Members may register for multiple events.
+- Members may register for multiple events.
+A book can be borrowed many times at different periods.
 ---
 
 # Scenario C: Restaurant Table Reservation & Ordering
@@ -129,9 +133,9 @@ A popular restaurant wants to manage reservations, orders, and billing.
 |              |            |               |       |
 
 ### Assumptions
-- 
-- 
-- 
+- Only customers can make reservations.
+- Every reservation is served by one waiter
+- Multiple dishes can be included in a single order.
 
 ---
 
