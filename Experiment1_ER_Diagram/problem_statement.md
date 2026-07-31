@@ -78,19 +78,20 @@ The Central Library wants to manage book lending and cultural events.
 
 | Entity | Attributes (PK, FK) | Notes |
 |--------|--------------------|-------|
-|  Trainer      |  trainer_id (PK), name, specialization, phone_no                  |     Represents trainers who conduct fitness programs.  |
-|        |                    |       |
-|        |                    |       |
-|        |                    |       |
-|        |                    |       |
+|  Speaker      |    speaker_id (PK), name, specialization                |   Represents speakers for library events.    |
+|  Member      |      member_id (PK), name, email              |  Represents registered library members.     |
+| Event       |     event_id (PK), name, date               |  Represents library events.     |
+| Book       |  book_id (PK), title, author, category                  |   Represents books available in the library.    |
+|  Loan	      |     loan_id (PK), loan_date, return_date               |  Stores borrowing details of books.     |
 
 ### Relationships and Constraints
 
 | Relationship | Cardinality | Participation | Notes |
 |--------------|------------|---------------|-------|
-|              |            |               |       |
-|              |            |               |       |
-|              |            |               |       |
+|     Speaker – Event         |     1:M	       |    Mandatory	          |  One speaker can conduct multiple events.     |
+|   Member – Event           |    M:N        |      Optional	         |  A member may register for multiple events.     |
+|   Member – Loan           |    1:M        |    Mandatory	           |  A member can borrow multiple books through loans.     |
+| Book – Loan             |     1:M       |    Mandatory           |   A book can be associated with multiple loans over time    |
 
 ### Assumptions
 - Only registered members can borrow books.
@@ -121,19 +122,20 @@ A popular restaurant wants to manage reservations, orders, and billing.
 
 | Entity | Attributes (PK, FK) | Notes |
 |--------|--------------------|-------|
-|        |                    |       |
-|        |                    |       |
-|        |                    |       |
-|        |                    |       |
-|        |                    |       |
+|   Customer     |   customer_id (PK), name, email, phone_no                 |  Represents restaurant customers.     |
+| Reservation	       |   reservation_id (PK), date_and_time, type, no_of_guests                 |  Stores reservation details.     |
+|   Waiter	     |        waiter_id (PK), name, phone            |     Represents restaurant waiters.  |
+|    Order    |       order_id (PK), date, total_amount             |  Stores order details.     |
+|Dish        |        dish_id (PK), dish_name, category, price            |    Represents dishes available in the restaurant.   |
 
 ### Relationships and Constraints
 
 | Relationship | Cardinality | Participation | Notes |
 |--------------|------------|---------------|-------|
-|              |            |               |       |
-|              |            |               |       |
-|              |            |               |       |
+|      Customer – Reservation        |  1:M          |   Mandatory            |  A customer can make multiple reservations.     |
+|  Waiter – Reservation            |     1:M       |    Mandatory           |   One waiter serves multiple reservations.    |
+|       Reservation – Order       |    1:M        |      Mandatory         |   A reservation can have multiple orders.    |
+|   Order – Dish           |      M:N      |     Mandatory          |    An order contains multiple dishes, and a dish can be part of multiple orders.   |
 
 ### Assumptions
 - Only customers can make reservations.
