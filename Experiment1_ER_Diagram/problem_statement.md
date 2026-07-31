@@ -30,21 +30,24 @@ FlexiFit Gym wants a database to manage its members, trainers, and fitness progr
 
 | Entity | Attributes (PK, FK) | Notes |
 |--------|--------------------|-------|
-|        |                    |       |
-|        |                    |       |
-|        |                    |       |
-|        |                    |       |
-|        |                    |       |
-
+|  Trainer      |     trainer_id (PK), name, specialization, phone_no               |  Represents trainers who conduct fitness programs.     |
+|   Program     | program_id (PK), name, category                   |   Defines the fitness programs offered.    |
+|   Member     |     member_id (PK), name, email, member_type               |  Represents registered gym members.     |
+|     Session   |  session_id (PK), session_time, session_type                  |    Represents personal training sessions.   |
+|     Attendance   |       attendance_id (PK), date, status             |   Stores attendance details for each session.    |
+|Payment          |payment_id (PK), member_id (FK), payment_type         |Stores payment details of members.|
 
 
 ### Relationships and Constraints
 
 | Relationship | Cardinality | Participation | Notes |
 |--------------|------------|---------------|-------|
-|              |            |               |       |
-|              |            |               |       |
-|              |            |               |       |
+|   Trainer – Program           |  M:N          |     Mandatory	          |    A trainer teaches multiple programs, and a program may be taught by multiple trainers.   |
+|  Member – Program            |     M:N       |     Optional          |    A member may join multiple programs.   |
+|  Trainer – Session            |   1:M         |        Mandatory       |    One trainer handles many sessions.   |
+|  Member – Session            |   1:M         |    Optional           |   A member can book multiple sessions.    |
+|   Session – Attendance           |   1:M         |    Mandatory           |  Every session has attendance records.     |
+|  Member – Payment            |    1:M        |     Mandatory	          |   A member can make multiple payments.    |
 
 ### Assumptions
 - Every trainer can teach one or more programs.
